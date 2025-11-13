@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2025-11-13T22:15:42.248767" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="F:\Visual Stduio Code\Workspace\RobotFramework\API_Robot\Test.robot">
+<test id="s1-t1" name="ADD_BOOK_API_TEST:" line="15">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:43.392025" level="INFO">Creating Session using : alias=mysession, url=https://rahulshettyacademy.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${BaseURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-13T22:15:43.392025" elapsed="0.000988"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:43.394014" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-11-13T22:15:44.053719" level="INFO">POST Request : url=https://rahulshettyacademy.com/Library/Addbook.php 
+ path_url=/Library/Addbook.php 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '98', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Learn Appium Automation with Java", "isbn": "121", "aisle": "123", "author": "John foe"}' 
+ </msg>
+<msg time="2025-11-13T22:15:44.053719" level="INFO">POST Response : url=https://rahulshettyacademy.com/Library/Addbook.php 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 13 Nov 2025 20:15:43 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Max-Age': '3600', 'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With', 'Content-Length': '43', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json;charset=UTF-8'} 
+ body={"Msg":"Book Already Exists","ID":"121123"} 
+ </msg>
+<msg time="2025-11-13T22:15:44.053719" level="INFO">C:\Users\Ahmed\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'rahulshettyacademy.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-13T22:15:44.054718" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>mysession</arg>
+<arg>/Library/Addbook.php</arg>
+<arg>json=${ADD_BOOK_BODY}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-11-13T22:15:43.393013" elapsed="0.661705"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-13T22:15:44.056717" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>200</arg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.055769" elapsed="0.000948"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-13T22:15:44.058717" level="INFO">200</msg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.057731" elapsed="0.000986"/>
+</kw>
+<status status="PASS" start="2025-11-13T22:15:43.389508" elapsed="0.669209"/>
+</test>
+<test id="s1-t2" name="GET_BOOK_API_TEST:" line="21">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:44.062718" level="INFO">Creating Session using : alias=mysession, url=https://rahulshettyacademy.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${BaseURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-13T22:15:44.061718" elapsed="0.001000"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:44.063718" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-11-13T22:15:44.611261" level="INFO">GET Request : url=https://rahulshettyacademy.com/Library/GetBook.php?ID=121123 
+ path_url=/Library/GetBook.php?ID=121123 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-11-13T22:15:44.611548" level="INFO">GET Response : url=https://rahulshettyacademy.com/Library/GetBook.php?ID=121123 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 13 Nov 2025 20:15:44 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Max-Age': '3600', 'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With', 'Content-Length': '98', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json;charset=UTF-8'} 
+ body=[{"book_name":"Learn Appium Automation with Java","isbn":"121","aisle":"123","author":"John foe"}] 
+ </msg>
+<msg time="2025-11-13T22:15:44.611548" level="INFO">C:\Users\Ahmed\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'rahulshettyacademy.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-13T22:15:44.612550" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>mysession</arg>
+<arg>/Library/GetBook.php?ID=${BOOK_ID}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.063718" elapsed="0.548832"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-13T22:15:44.614552" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>200</arg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.613548" elapsed="0.001004"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-13T22:15:44.616594" level="INFO">200</msg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.615597" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-11-13T22:15:44.060717" elapsed="0.556830"/>
+</test>
+<test id="s1-t3" name="DELETE_BOOK_API_TEST:" line="27">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:44.620549" level="INFO">Creating Session using : alias=mysession, url=https://rahulshettyacademy.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${BaseURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-13T22:15:44.620549" elapsed="0.001000"/>
+</kw>
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2025-11-13T22:15:44.622549" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2025-11-13T22:15:45.196898" level="INFO">DELETE Request : url=https://rahulshettyacademy.com/Library/DeleteBook.php 
+ path_url=/Library/DeleteBook.php 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '16', 'Content-Type': 'application/json'} 
+ body=b'{"ID": "121123"}' 
+ </msg>
+<msg time="2025-11-13T22:15:45.196898" level="INFO">DELETE Response : url=https://rahulshettyacademy.com/Library/DeleteBook.php 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 13 Nov 2025 20:15:45 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Max-Age': '3600', 'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With', 'Content-Length': '38', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json;charset=UTF-8'} 
+ body={"msg":"book is successfully deleted"} 
+ </msg>
+<msg time="2025-11-13T22:15:45.196898" level="INFO">C:\Users\Ahmed\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'rahulshettyacademy.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-13T22:15:45.197917" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>mysession</arg>
+<arg>/Library/DeleteBook.php</arg>
+<arg>json=${BOOK_ID_DELETE}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2025-11-13T22:15:44.622549" elapsed="0.575368"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-13T22:15:45.199945" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>200</arg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-13T22:15:45.198947" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-13T22:15:45.201923" level="INFO">200</msg>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-13T22:15:45.200923" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-11-13T22:15:44.618556" elapsed="0.583367"/>
+</test>
+<status status="PASS" start="2025-11-13T22:15:42.253102" elapsed="2.950795"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-13T22:15:43.394014" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-11-13T22:15:44.063718" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-11-13T22:15:44.622549" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+</errors>
+</robot>
